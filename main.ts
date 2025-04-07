@@ -1,4 +1,14 @@
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Food, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite)
+    projektile.vy = 0 - projektile.vy
+})
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    projektile.vx = 20
+})
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+	
+})
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Food, function (sprite, otherSprite) {
     let mySprite48: Sprite = null
     let mySprite47: Sprite = null
     let mySprite46: Sprite = null
@@ -17,10 +27,13 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Food, function (sprite, othe
     let mySprite33: Sprite = null
     let mySprite32: Sprite = null
     let mySprite31: Sprite = null
+    if (projektile.vx == -50) {
+        projektile.vx = 50
+    }
     if (otherSprite == mySprite3) {
         sprites.destroy(mySprite3)
         if (projektile.vx == -50) {
-            projektile.vx = 50
+        	
         }
     }
     if (otherSprite == mySprite4) {
@@ -159,15 +172,6 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Food, function (sprite, othe
         sprites.destroy(mySprite48)
     }
 })
-controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    projektile.vx = 20
-})
-controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    let gravity = 0
-    projektile.setBounceOnWall(true)
-    projektile.setStayInScreen(true)
-    projektile.ay = gravity
-})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
     if (projektile.vy == -50) {
         projektile.vy = 50
@@ -204,6 +208,7 @@ let mySprite6: Sprite = null
 let mySprite5: Sprite = null
 let mySprite4: Sprite = null
 let mySprite3: Sprite = null
+let gravity = 0
 let projektile: Sprite = null
 let Rada = 12
 let Sloupec = 12
@@ -242,6 +247,9 @@ projektile = sprites.createProjectileFromSprite(img`
     . . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . . 
     `, mySprite, -50, -50)
+projektile.setBounceOnWall(true)
+projektile.setStayInScreen(true)
+projektile.ay = gravity
 scene.setBackgroundImage(img`
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
