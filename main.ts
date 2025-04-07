@@ -17,33 +17,6 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Food, function (sprite, othe
     let mySprite33: Sprite = null
     let mySprite32: Sprite = null
     let mySprite31: Sprite = null
-    let mySprite30: Sprite = null
-    let mySprite29: Sprite = null
-    let mySprite28: Sprite = null
-    let mySprite27: Sprite = null
-    let mySprite26: Sprite = null
-    let MySprite25: Sprite = null
-    let mySprite24: Sprite = null
-    let mySprite23: Sprite = null
-    let MySprite22: Sprite = null
-    let mySprite21: Sprite = null
-    let mySprite20: Sprite = null
-    let mySprite19: Sprite = null
-    let mySprite18: Sprite = null
-    let mySprite17: Sprite = null
-    let mySprite16: Sprite = null
-    let mySprite15: Sprite = null
-    let mySprite14: Sprite = null
-    let mySprite13: Sprite = null
-    let mySprite12: Sprite = null
-    let mySprite11: Sprite = null
-    let mySprite10: Sprite = null
-    let mySprite9: Sprite = null
-    let mySprite8: Sprite = null
-    let mySprite7: Sprite = null
-    let mySprite6: Sprite = null
-    let mySprite5: Sprite = null
-    let mySprite4: Sprite = null
     if (otherSprite == mySprite3) {
         sprites.destroy(mySprite3)
         if (projektile.vx == -50) {
@@ -196,16 +169,64 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     projektile.ay = gravity
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    if (projektile.vx == -50) {
-        projektile.vx = 50
+    if (projektile.vy == -50) {
+        projektile.vy = 50
     }
-    if (projektile.vx == 50) {
-        projektile.vx = -50
+    if (projektile.vy == 50) {
+        projektile.vy = -50
     }
 })
+let mySprite30: Sprite = null
+let mySprite29: Sprite = null
+let mySprite28: Sprite = null
+let mySprite27: Sprite = null
+let mySprite26: Sprite = null
+let MySprite25: Sprite = null
+let mySprite24: Sprite = null
+let mySprite23: Sprite = null
+let MySprite22: Sprite = null
+let mySprite21: Sprite = null
+let mySprite20: Sprite = null
+let mySprite19: Sprite = null
+let mySprite18: Sprite = null
+let mySprite17: Sprite = null
+let mySprite16: Sprite = null
+let mySprite15: Sprite = null
+let mySprite14: Sprite = null
+let mySprite13: Sprite = null
+let mySprite12: Sprite = null
+let mySprite11: Sprite = null
+let mySprite10: Sprite = null
+let mySprite9: Sprite = null
+let mySprite8: Sprite = null
+let mySprite7: Sprite = null
+let mySprite6: Sprite = null
+let mySprite5: Sprite = null
+let mySprite4: Sprite = null
 let mySprite3: Sprite = null
-let mySprite: Sprite = null
 let projektile: Sprite = null
+let Rada = 12
+let Sloupec = 12
+let Sirka = 20
+let rozestupx = 2
+let rozestupy = 2
+let vyska = 10
+let mySprite = sprites.create(img`
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . f f f . . . . . . . . . . f f f . . . 
+    . f f 4 4 4 f f f f f f f f f f 4 4 4 f f . 
+    f f 4 4 4 4 f b b b b b 1 1 b f 4 1 1 4 f f 
+    f 9 4 4 4 4 f b b b b b 1 1 1 f 4 4 1 4 9 f 
+    f 9 4 1 4 4 f b b b b b b b b f 4 4 4 4 9 f 
+    f f 4 1 1 4 f b b b b b b b b f 4 4 4 4 f f 
+    . f f 4 4 4 f f f f f f f f f f 4 4 4 f f . 
+    . . . f f f . . . . . . . . . . f f f . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Player)
+mySprite.setPosition(70, 110)
+mySprite.setStayInScreen(true)
 projektile = sprites.createProjectileFromSprite(img`
     . . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . . 
@@ -220,7 +241,7 @@ projektile = sprites.createProjectileFromSprite(img`
     . . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . . 
-    `, mySprite, 50, 50)
+    `, mySprite, -50, -50)
 scene.setBackgroundImage(img`
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -343,22 +364,6 @@ scene.setBackgroundImage(img`
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     `)
-mySprite = sprites.create(img`
-    . . . . . . . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . . . . . . . 
-    . . . f f f . . . . . . . . . . f f f . . . 
-    . f f 4 4 4 f f f f f f f f f f 4 4 4 f f . 
-    f f 4 4 4 4 f b b b b b 1 1 b f 4 1 1 4 f f 
-    f 9 4 4 4 4 f b b b b b 1 1 1 f 4 4 1 4 9 f 
-    f 9 4 1 4 4 f b b b b b b b b f 4 4 4 4 9 f 
-    f f 4 1 1 4 f b b b b b b b b f 4 4 4 4 f f 
-    . f f 4 4 4 f f f f f f f f f f 4 4 4 f f . 
-    . . . f f f . . . . . . . . . . f f f . . . 
-    . . . . . . . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . . . . . . . 
-    `, SpriteKind.Player)
-mySprite.setPosition(70, 110)
-mySprite.setStayInScreen(true)
 mySprite3 = sprites.create(img`
     . . . . . . . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . . . . . . . 
@@ -372,7 +377,447 @@ mySprite3 = sprites.create(img`
     . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
     . . . . . . . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . . . . . . . 
-    `, SpriteKind.Player)
+    `, SpriteKind.Food)
+mySprite3.setPosition(Sloupec, Rada)
+Sloupec += rozestupx + Sirka
+mySprite4 = sprites.create(img`
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+mySprite4.setPosition(Sloupec, Rada)
+Sloupec += rozestupx + Sirka
+mySprite5 = sprites.create(img`
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+mySprite5.setPosition(Sloupec, Rada)
+Sloupec += rozestupx + Sirka
+mySprite6 = sprites.create(img`
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+mySprite6.setPosition(Sloupec, Rada)
+Sloupec += rozestupx + Sirka
+mySprite7 = sprites.create(img`
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+mySprite7.setPosition(Sloupec, Rada)
+Sloupec += rozestupx + Sirka
+mySprite8 = sprites.create(img`
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+mySprite8.setPosition(Sloupec, Rada)
+Sloupec += rozestupx + Sirka
+mySprite9 = sprites.create(img`
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+mySprite9.setPosition(Sloupec, Rada)
+Sloupec += rozestupx + Sirka
+Rada += rozestupy + vyska
+Sloupec = 12
+mySprite10 = sprites.create(img`
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+mySprite10.setPosition(Sloupec, Rada)
+Sloupec += rozestupx + Sirka
+mySprite11 = sprites.create(img`
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+mySprite11.setPosition(Sloupec, Rada)
+Sloupec += rozestupx + Sirka
+mySprite12 = sprites.create(img`
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+mySprite12.setPosition(Sloupec, Rada)
+Sloupec += rozestupx + Sirka
+mySprite13 = sprites.create(img`
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+mySprite13.setPosition(Sloupec, Rada)
+Sloupec += rozestupx + Sirka
+mySprite14 = sprites.create(img`
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+mySprite14.setPosition(Sloupec, Rada)
+Sloupec += rozestupx + Sirka
+mySprite15 = sprites.create(img`
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+mySprite15.setPosition(Sloupec, Rada)
+Sloupec += rozestupx + Sirka
+mySprite16 = sprites.create(img`
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+mySprite16.setPosition(Sloupec, Rada)
+Sloupec += rozestupx + Sirka
+Rada += rozestupy + vyska
+Sloupec = 12
+mySprite17 = sprites.create(img`
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+mySprite17.setPosition(Sloupec, Rada)
+Sloupec += rozestupx + Sirka
+mySprite18 = sprites.create(img`
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+mySprite18.setPosition(Sloupec, Rada)
+Sloupec += rozestupx + Sirka
+mySprite19 = sprites.create(img`
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+mySprite19.setPosition(Sloupec, Rada)
+Sloupec += rozestupx + Sirka
+mySprite20 = sprites.create(img`
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+mySprite20.setPosition(Sloupec, Rada)
+Sloupec += rozestupx + Sirka
+mySprite21 = sprites.create(img`
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+mySprite21.setPosition(Sloupec, Rada)
+Sloupec += rozestupx + Sirka
+MySprite22 = sprites.create(img`
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+MySprite22.setPosition(Sloupec, Rada)
+Sloupec += rozestupx + Sirka
+mySprite23 = sprites.create(img`
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+mySprite23.setPosition(Sloupec, Rada)
+Sloupec += rozestupx + Sirka
+Rada += rozestupy + vyska
+Sloupec = 12
+mySprite24 = sprites.create(img`
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+mySprite24.setPosition(Sloupec, Rada)
+Sloupec += rozestupx + Sirka
+MySprite25 = sprites.create(img`
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+MySprite25.setPosition(Sloupec, Rada)
+Sloupec += rozestupx + Sirka
+mySprite26 = sprites.create(img`
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+mySprite26.setPosition(Sloupec, Rada)
+Sloupec += rozestupx + Sirka
+mySprite27 = sprites.create(img`
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+mySprite27.setPosition(Sloupec, Rada)
+Sloupec += rozestupx + Sirka
+mySprite28 = sprites.create(img`
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+mySprite28.setPosition(Sloupec, Rada)
+Sloupec += rozestupx + Sirka
+mySprite29 = sprites.create(img`
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+mySprite29.setPosition(Sloupec, Rada)
+Sloupec += rozestupx + Sirka
+mySprite30 = sprites.create(img`
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+mySprite30.setPosition(Sloupec, Rada)
+Sloupec += rozestupx + Sirka
 controller.moveSprite(mySprite, 100, 0)
 forever(function () {
     console.logValue("x", projektile.vx)
